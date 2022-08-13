@@ -53,6 +53,10 @@ class SearchRequest:
             search_url = (
                 f"http://gen.lib.rus.ec/search.php?req={query_parsed}&column=author"
             )
+        elif self.search_type.lower() == "isbn":
+            search_url = (
+                f"http://gen.lib.rus.ec/search.php?req={query_parsed}&column=identifier"
+            )
         search_page = requests.get(search_url)
         return search_page
 
